@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Aurum Luxe — Boutique E‑Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aurum: {
+                50: "#fff9ed",
+                100: "#ffefc7",
+                200: "#f7dfa2",
+                300: "#edc973",
+                400: "#dcb04d",
+                500: "#c89637",
+                600: "#a8742a",
+                700: "#805620",
+                800: "#5a3a15",
+                900: "#3b260d"
+              },
+              midnight: "#0f1014",
+              cloud: "#f5f5f7"
+            },
+            fontFamily: {
+              display: ["'Playfair Display'", "serif"],
+              body: ["'Inter'", "sans-serif"]
+            },
+            boxShadow: {
+              glow: "0 20px 40px rgba(200,150,55,0.25)"
+            },
+            screens: {
+              'xs': '375px',
+              ...tailwind.theme?.screens || {},
+            }
+          }
+        }
+      };
+    </script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        height: 100%;
+        min-height: 100%;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      @media (max-width: 640px) {
+        body {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 480px) {
+        body {
+          font-size: 14px;
+        }
+      }
+    </style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurum Luxe — Boutique E‑Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aurum: {
+                50: "#fff9ed",
+                100: "#ffefc7",
+                200: "#f7dfa2",
+                300: "#edc973",
+                400: "#dcb04d",
+                500: "#c89637",
+                600: "#a8742a",
+                700: "#805620",
+                800: "#5a3a15",
+                900: "#3b260d"
+              },
+              midnight: "#0f1014",
+              cloud: "#f5f5f7"
+            },
+            fontFamily: {
+              display: ["'Playfair Display'", "serif"],
+              body: ["'Inter'", "sans-serif"]
+            },
+            boxShadow: {
+              glow: "0 20px 40px rgba(200,150,55,0.25)"
+            }
+          }
+        }
+      };
+    </script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-cloud text-midnight font-body">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-aurum-100">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-aurum-500 text-white flex items-center justify-center font-display text-xl">
+            AL
+          </div>
+          <div>
+            <p class="font-display text-xl tracking-wide">Aurum Luxe</p>
+            <p class="text-xs text-aurum-600 uppercase tracking-[0.2em]">
+              Boutique
+            </p>
+          </div>
+        </div>
+        <nav
+          id="desktopNav"
+          class="hidden md:flex gap-8 text-sm font-medium tracking-wide"
+        >
+          <a class="hover:text-aurum-500 transition-colors" href="#collections">Collections</a>
+          <a class="hover:text-aurum-500 transition-colors" href="#featured">Featured</a>
+          <a class="hover:text-aurum-500 transition-colors" href="#testimonials">Testimonials</a>
+          <a class="hover:text-aurum-500 transition-colors" href="#newsletter">Newsletter</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <button class="hidden sm:inline-flex px-5 py-2 border border-aurum-400 rounded-full text-sm tracking-wide hover:bg-aurum-50 transition">
+            Sign in
+          </button>
+          <button class="px-5 py-2 bg-aurum-500 text-white rounded-full text-sm tracking-wide shadow-glow hover:bg-aurum-600 transition">
+            Shop Now
+          </button>
+          <button id="mobileToggle" class="md:hidden w-10 h-10 rounded-full border border-aurum-400 flex items-center justify-center">
+            <span class="sr-only">Open menu</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav id="mobileNav" class="md:hidden px-6 pb-4 hidden flex-col gap-4 text-sm border-t border-aurum-100 bg-white">
+        <a class="py-2 border-b border-aurum-50" href="#collections">Collections</a>
+        <a class="py-2 border-b border-aurum-50" href="#featured">Featured</a>
+        <a class="py-2 border-b border-aurum-50" href="#testimonials">Testimonials</a>
+        <a class="py-2 border-b border-aurum-50" href="#newsletter">Newsletter</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-aurum-50 via-white to-white"></div>
+        <div class="relative max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="uppercase tracking-[0.4em] text-xs text-aurum-500 mb-6">
+              New Season 2025
+            </p>
+            <h1 class="font-display text-4xl sm:text-5xl leading-tight text-midnight mb-6">
+              Elevate Every Moment with Curated Golden Essentials
+            </h1>
+            <p class="text-lg text-midnight/80 mb-8">
+              Discover artisan-crafted jewelry, timeless accessories, and luminous homeware designed for modern tastemakers.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <button class="px-6 py-3 bg-midnight text-white rounded-full tracking-wide hover:bg-midnight/90 transition">
+                Explore Collection
+              </button>
+              <button class="px-6 py-3 border border-midnight rounded-full tracking-wide hover:bg-aurum-50 transition">
+                View Lookbook
+              </button>
+            </div>
+            <div class="mt-10 grid grid-cols-3 gap-6 text-center">
+              <div>
+                <p class="text-3xl font-display text-aurum-600">250+</p>
+                <p class="text-xs uppercase tracking-[0.3em] text-midnight/70">Designs</p>
+              </div>
+              <div>
+                <p class="text-3xl font-display text-aurum-600">4.9/5</p>
+                <p class="text-xs uppercase tracking-[0.3em] text-midnight/70">Reviews</p>
+              </div>
+              <div>
+                <p class="text-3xl font-display text-aurum-600">48h</p>
+                <p class="text-xs uppercase tracking-[0.3em] text-midnight/70">Delivery</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -top-6 -right-6 w-24 h-24 border border-aurum-200 rounded-full"></div>
+            <div class="absolute -bottom-6 -left-4 w-16 h-16 bg-aurum-100 rounded-full opacity-70"></div>
+            <div class="bg-white rounded-[32px] p-6 shadow-2xl border border-aurum-100">
+              <img
+                class="rounded-3xl object-cover w-full h-80"
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
+                alt="Curated lifestyle selection"
+              />
+              <div class="flex items-center justify-between mt-6">
+                <div>
+                  <p class="text-sm text-aurum-500 uppercase tracking-[0.3em]">
+                    Highlight
+                  </p>
+                  <p class="text-lg font-semibold">Gilded Arcane Set</p>
+                </div>
+                <p class="text-2xl font-display text-aurum-600">$289</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collections -->
+      <section id="collections" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-aurum-500">
+              Shop by muse
+            </p>
+            <h2 class="font-display text-3xl">Collections</h2>
+          </div>
+          <button class="self-start sm:self-end px-5 py-2 border border-aurum-400 rounded-full text-sm tracking-wide hover:bg-aurum-50 transition">
+            View All
+          </button>
+        </div>
+        <div id="collectionsGrid" class="grid md:grid-cols-3 gap-6">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- Featured products -->
+      <section id="featured" class="bg-white py-16">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <div>
+              <p class="text-sm uppercase tracking-[0.3em] text-aurum-500">
+                Curated drop
+              </p>
+              <h2 class="font-display text-3xl">Featured Pieces</h2>
+            </div>
+            <div class="flex gap-3">
+              <button id="prevProduct" class="w-12 h-12 border border-aurum-200 rounded-full flex items-center justify-center hover:bg-aurum-50">
+                ←
+              </button>
+              <button id="nextProduct" class="w-12 h-12 border border-aurum-200 rounded-full flex items-center justify-center hover:bg-aurum-50">
+                →
+              </button>
+            </div>
+          </div>
+          <div class="relative">
+            <div id="productCarousel" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-500">
+              <!-- Cards injected by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="max-w-5xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+          <p class="text-sm uppercase tracking-[0.3em] text-aurum-500">
+            Devoted voices
+          </p>
+          <h2 class="font-display text-3xl">Testimonials</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6" id="testimonialGrid">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section id="newsletter" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-aurum-100/80 to-white"></div>
+        <div class="relative max-w-4xl mx-auto px-6 py-16 text-center space-y-6">
+          <p class="uppercase tracking-[0.4em] text-xs text-aurum-600">
+            Insider access
+          </p>
+          <h2 class="font-display text-3xl">
+            Receive private previews & bespoke styling notes
+          </h2>
+          <p class="text-midnight/80">
+            Join the Aurum circle for tailored recommendations, early access to new drops, and invitations to exclusive ateliers.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+            <input
+              type="email"
+              required
+              placeholder="you@email.com"
+              class="flex-1 px-4 py-3 rounded-full border border-aurum-200 focus:outline-none focus:ring-2 focus:ring-aurum-400"
+            />
+            <button class="px-6 py-3 rounded-full bg-midnight text-white font-semibold hover:bg-midnight/90 transition">
+              Join now
+            </button>
+          </form>
+          <p class="text-xs text-midnight/60">
+            We respect your inbox — unsubscribe anytime.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-midnight text-white">
+      <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
+        <div>
+          <p class="font-display text-2xl mb-3">Aurum Luxe</p>
+          <p class="text-sm text-white/70">
+            Boutique e-commerce celebrating refined craftsmanship with luminous gold tones and elevated essentials.
+          </p>
+        </div>
+        <div>
+          <p class="uppercase text-xs tracking-[0.3em] text-aurum-300 mb-4">Explore</p>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li><a href="#collections" class="hover:text-aurum-200">Collections</a></li>
+            <li><a href="#featured" class="hover:text-aurum-200">Featured</a></li>
+            <li><a href="#testimonials" class="hover:text-aurum-200">Stories</a></li>
+            <li><a href="#newsletter" class="hover:text-aurum-200">Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="uppercase text-xs tracking-[0.3em] text-aurum-300 mb-4">Support</p>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li><a href="#" class="hover:text-aurum-200">Shipping & Returns</a></li>
+            <li><a href="#" class="hover:text-aurum-200">Careers</a></li>
+            <li><a href="#" class="hover:text-aurum-200">FAQs</a></li>
+            <li><a href="#" class="hover:text-aurum-200">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="uppercase text-xs tracking-[0.3em] text-aurum-300 mb-4">Follow</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-xs uppercase tracking-[0.2em] hover:border-aurum-300">I</a>
+            <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-xs uppercase tracking-[0.2em] hover:border-aurum-300">P</a>
+            <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-xs uppercase tracking-[0.2em] hover:border-aurum-300">B</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 py-6 text-center text-xs text-white/60">
+        © <span id="currentYear"></span> Aurum Luxe. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      const collections = [
+        {
+          name: "Celestial Gaze",
+          desc: "Organic shapes with luminous stones inspired by night skies.",
+          img: "https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Modern Heirloom",
+          desc: "Sculpted essentials crafted to last generations.",
+          img: "https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Golden Atelier",
+          desc: "Statement pieces blending architecture and fashion.",
+          img: "https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=600&q=80"
+        }
+      ];
+
+      const collectionsGrid = document.getElementById("collectionsGrid");
+      collectionsGrid.innerHTML = collections
+        .map(
+          (item, index) => `
+            <article class="group relative overflow-hidden rounded-3xl border border-aurum-100 bg-white shadow-lg">
+              <img src="${item.img}" alt="${item.name}" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <div class="p-6 space-y-3">
+                <p class="text-sm uppercase tracking-[0.3em] text-aurum-500">Edition ${index + 1}</p>
+                <h3 class="text-2xl font-display">${item.name}</h3>
+                <p class="text-sm text-midnight/80">${item.desc}</p>
+                <button class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-aurum-600 tracking-wide">
+                  Discover
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </article>
+          `
+        )
+        .join("");
+
+      const mobileToggle = document.getElementById("mobileToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      mobileToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
+      const products = [
+        {
+          title: "Auric Orbit Hoops",
+          price: "$189",
+          badge: "Bestseller",
+          image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Seraphine Cuff",
+          price: "$220",
+          badge: "New",
+          image: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Lumen Choker",
+          price: "$265",
+          badge: "Limited",
+          image: "https://images.unsplash.com/photo-1491955478222-69ae25414368?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Halo Stack Rings",
+          price: "$140",
+          badge: "Gift",
+          image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80"
+        }
+      ];
+
+      const carousel = document.getElementById("productCarousel");
+      let currentIndex = 0;
+
+      function renderProducts() {
+        carousel.innerHTML = products
+          .map(
+            (product, idx) => `
+            <article class="rounded-3xl border border-aurum-100 bg-white shadow-lg p-5 flex flex-col">
+              <div class="relative">
+                <span class="absolute top-4 left-4 bg-white/90 text-aurum-600 text-xs tracking-[0.3em] px-3 py-1 rounded-full">
+                  ${product.badge}
+                </span>
+                <img src="${product.image}" alt="${product.title}" class="h-64 w-full object-cover rounded-2xl" />
+              </div>
+              <div class="mt-6 flex-1 flex flex-col">
+                <h3 class="text-xl font-display">${product.title}</h3>
+                <p class="text-sm text-midnight/70 mt-2">
+                  Hand-polished detailing with satin-finished interior for day-to-night comfort.
+                </p>
+                <div class="mt-auto flex items-center justify-between pt-6">
+                  <p class="text-2xl font-display text-aurum-600">${product.price}</p>
+                  <button class="px-4 py-2 rounded-full border border-midnight text-sm hover:bg-aurum-50 transition">
+                    Add to bag
+                  </button>
+                </div>
+              </div>
+            </article>
+          `
+          )
+          .join("");
+
+        const offset = currentIndex * -100;
+        carousel.style.transform = `translateX(${offset}%)`;
+      }
+
+      renderProducts();
+
+      document.getElementById("nextProduct").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % products.length;
+        renderProducts();
+      });
+
+      document.getElementById("prevProduct").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + products.length) % products.length;
+        renderProducts();
+      });
+
+      const testimonials = [
+        {
+          quote:
+            "Every piece feels curated for my lifestyle. The quality and unboxing experience are unmatched.",
+          name: "Amelia Hart",
+          role: "Creative Director"
+        },
+        {
+          quote:
+            "I’ve never felt more seen by a brand. Styling support and delivery were impeccable.",
+          name: "Leo Sterling",
+          role: "Brand Strategist"
+        },
+        {
+          quote:
+            "The golden palette brings warmth to my home office and accessories rotate seamlessly.",
+          name: "Nora Wilde",
+          role: "Interior Curator"
+        }
+      ];
+
+      const testimonialGrid = document.getElementById("testimonialGrid");
+      testimonialGrid.innerHTML = testimonials
+        .map(
+          (item) => `
+          <article class="rounded-3xl border border-aurum-100 bg-white p-6 shadow-lg flex flex-col gap-4">
+            <p class="text-lg text-midnight/80">“${item.quote}”</p>
+            <div>
+              <p class="font-semibold">${item.name}</p>
+              <p class="text-xs uppercase tracking-[0.3em] text-aurum-500">${item.role}</p>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
